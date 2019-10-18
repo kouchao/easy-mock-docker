@@ -8,8 +8,7 @@ ARG source=https://github.com/easy-mock/easy-mock/archive/v${EASY_MOCK_VERSION}.
 
 RUN wget -c ${source} -O easy-mock.tar.gz && \
     tar -zxvf easy-mock.tar.gz && \
-    mv easy-mock-${EASY_MOCK_VERSION} easy-mock && \
-    ls
+    mv easy-mock-${EASY_MOCK_VERSION} easy-mock
 
 ADD ./default.json /usr/src/easy-mock/config/default.json
 
