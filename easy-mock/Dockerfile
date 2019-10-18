@@ -8,12 +8,11 @@ ARG source=https://github.com/easy-mock/easy-mock/archive/v${EASY_MOCK_VERSION}.
 
 RUN wget -c ${source} -O easy-mock.tar.gz && \
     tar -zxvf easy-mock.tar.gz && \
-    mv easy-mock-${EASY_MOCK_VERSION} easy-mock
+    mv easy-mock-${EASY_MOCK_VERSION} easy-mock && \
+    cd easy-mock && \
+    npm i --registry https://registry.npm.taobao.org
 
 ADD ./default.json /usr/src/easy-mock/config/default.json
-
-RUN cd easy-mock && \
-    npm i --registry https://registry.npm.taobao.org
 
 EXPOSE 7300
 
